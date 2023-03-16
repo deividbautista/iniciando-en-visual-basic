@@ -1,11 +1,13 @@
 ﻿Module Module1
-
     Sub Main()
         '---------------------------------------------
         'Numero par o impar
         '---------------------------------------------
         'En la siguiente linea observamos la definición de la variable num
         Dim num As Integer
+
+        Console.WriteLine("NÚMERO PAR O IMPAR")
+
         'posteriormente pedido la digitación del numero que se asignara a num
         Console.WriteLine("Introduzca un número: ")
         num = Console.ReadLine()
@@ -19,6 +21,8 @@
 
         End If
         System.Console.WriteLine("valor: " & num)
+
+        Console.WriteLine("------------------------------------------------------------------ ")
 
         '---------------------------------------------
         'Sucesión de fibonacci
@@ -34,12 +38,11 @@
         Dim a1 As Integer = 1
         Dim a2 As Integer = 0
 
+        Console.WriteLine("SUCESIÓN DE FIBONACCI")
+
         'En el siguiente apartado le pediremos al usuario el valor de la posición de la sucesión
         Console.WriteLine("Digite hasta que posición desea observar la sucesión de Fibonacci: ")
         posicion = Console.ReadLine()
-
-        'Utilizamos la siguiente linea con fines esteticos
-        Console.WriteLine("------------------------------------------------------------------ ")
 
         'Podemos ver en en el siguiente bucle condicional, como aplicaremos la sucesión de una forma sencilla
         While (contador <= posicion) 'Definimos la condicion por medio de un contador y el valor digitado por el usuario
@@ -58,10 +61,35 @@
         Console.WriteLine("posicion: " & posicion)
         'Brindamos el valor de la posicion siguiente a la provista por el usuario 
         Console.WriteLine("valor de la siguiente posicion:" & fibonacci)
+
+        Console.WriteLine("------------------------------------------------------------------ ")
+
+        '---------------------------------------------
+        'Números primos
+        '---------------------------------------------
+        'En esta sección implementaremos la condicional if para determinar si un número es primo
+        Console.WriteLine("NÚMEROS PRIMOS :) ")
+        Dim númeroprimo As Integer
+
+        Console.WriteLine("Digite el número que desea identificar: ")
+        númeroprimo = Console.ReadLine()
+
+        'en este apartado realizamos la condional, en la que si el residuo de cualquier número
+        'dividido en 2, es mayor a 0 es un número primo sin incluir al 2
+        If númeroprimo Mod 2 > 0 Or númeroprimo = 2 Then
+
+            Console.WriteLine("El número: " & númeroprimo & " es primo :D")
+
+        Else
+            Console.WriteLine("El número" & númeroprimo & " no es primo :U")
+
+        End If
+
         'Utilizamos la siguiente linea para evitar que el ejecutable se suependa una vez acabado el proceso
         Console.ReadKey(True)
 
         'Fin :3
+
     End Sub
 
 End Module
