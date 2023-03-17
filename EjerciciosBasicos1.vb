@@ -92,8 +92,8 @@ Module Module1
         '---------------------------------------------
 
         Console.WriteLine("Hallar grados de un triangulo :} ")
-
-
+        
+        'Definir funciones 
         Dim A As Double
         Dim B As Double
         Dim C As Double
