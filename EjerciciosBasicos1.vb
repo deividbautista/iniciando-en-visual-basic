@@ -93,13 +93,17 @@ Module Module1
 
         Console.WriteLine("Hallar grados de un triangulo :} ")
         
-        'Definir funciones 
+        'Definir funciones que vamos a necesitar para el correcto desarrollo del programa
+        'En estas primeras tres guardaremos el valor de los angulos recuktantes de la ecuaciones
         Dim A As Double
         Dim B As Double
         Dim C As Double
+        'En las siguientes varibales utilizaremos un concepto nuevo, denominado: "MATRICES", para poder guardar
+        'Dos resultados relacionados en una misma lista
         Dim AB(2) As Double
         Dim BC(2) As Double
         Dim AC(2) As Double
+        'Estos son variables para calcular los conocidos vectores, para el continuo desarrollo de la ecuación
         Dim VectoresAB As Double
         Dim vectoresBC As Double
         Dim vectoresAC As Double
@@ -110,6 +114,7 @@ Module Module1
         Dim paso3 As Double
         Dim cosenor As Double
         Dim división As Double
+        'Definimos las cordenadas como integer para despues solicitar su valor al usuario
         Dim Ax As Integer
         Dim Ay As Integer
         Dim Bx As Integer
@@ -117,7 +122,7 @@ Module Module1
         Dim Cx As Integer
         Dim Cy As Integer
 
-
+        'En este apartado solicitamos las distintas coordenadas deseadas
         Console.WriteLine("Digite la cordenada X del vertice A: ")
         Ax = Console.ReadLine()
         Console.WriteLine("Digite la cordenada y del vertice A: ")
@@ -130,22 +135,32 @@ Module Module1
         Cx = Console.ReadLine()
         Console.WriteLine("Digite la cordenada y del vertice C: ")
         Cy = Console.ReadLine()
-
+        
+        'En este apartado empezamos a utilizar las coordenadas para multiplicarlas y obtener las nuevas cordenadas de "AB, AC, BC"
         AB(0) = Bx - Ax
         AB(1) = By - Ay
         AC(0) = Cx - Ax
         AC(1) = Cy - Ay
         BC(0) = Cx - Bx
         BC(1) = Cy - By
+        'Procedemos a realizar los vectores de la formula indicada de "AB, AC, BC"
         VectoresAB = AB(0) ^ 2 + AB(1) ^ 2
         vectoresAC = AC(0) ^ 2 + AC(1) ^ 2
         vectoresBC = BC(0) ^ 2 + BC(1) ^ 2
-
+        
+        'Obtenemos el producto escalar utilizando los distintos vectores de "AB, AC, BC"
         escalarA = AB(0) * AC(0) + AB(1) * AC(1)
         escalarB = AB(0) * BC(0) + AB(1) * BC(1)
 
+        'A continuación insertamos la formula para conseguir la función matematica de coseno inverso o arcoseno, el cual sera necesario para la continuidad del proceso
         'Atan(-x / Sqrt(-x * x + 1)) + (2 * Atan(1))
-
+        'Tambien es importante tener en cuenta la configuración de ATAN en el visual basic, para cambiarlo de radianes a grados que eslo que necitamos
+        'Se realiza lo siguiente: atan()*180/math.pi
+        'O en caso de requerir lo contrario re realiza de la siguiente manera: atan()*math.pi/180
+        'La función Sqrt nos brinda la raiz cudrada de un número, importada de la libreria math
+        'La función Pi nos brinda el número pi sin tener que determinarlo importada de la libreria math
+        
+        'En este apartado veremos los pasos a realizar para resolver la ecuación
         cosenor = Sqrt(VectoresAB) * Sqrt(vectoresAC)
         división = escalarA / cosenor
         paso1 = -división * división + 1
