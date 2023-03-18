@@ -1,4 +1,4 @@
-'Esta linea nos sirve para importar la libreria math, que nos trae varias funciones necesarias para el desarrollo del último ejercicio
+﻿'Esta linea nos sirve para importar la libreria math, que nos trae varias funciones necesarias para el desarrollo del último ejercicio
 Imports System.Math
 Module Module1
     Sub Main()
@@ -93,38 +93,38 @@ Module Module1
         '---------------------------------------------
 
         Console.WriteLine("Hallar grados de un triangulo :} ")
-        
+
         'Definir funciones que vamos a necesitar para el correcto desarrollo del programa
         'En estas primeras tres guardaremos el valor de los angulos recuktantes de la ecuaciones
         Dim A As Double
         Dim B As Double
         Dim C As Double
-        
+
         'En las siguientes varibales utilizaremos un concepto nuevo, denominado: "MATRICES", para poder guardar
         'Dos resultados relacionados en una misma lista
         Dim AB(2) As Double
         Dim BC(2) As Double
         Dim AC(2) As Double
-        
+
         'Estos son variables para calcular los conocidos vectores, para el continuo desarrollo de la ecuación
         Dim VectoresAB As Double
         Dim vectoresBC As Double
         Dim vectoresAC As Double
-        
+
         'En estos apartados definiremos los productos escalar de las funciones "AB, AC, BC"
         Dim escalarA As Integer
         Dim escalarB As Integer
-        
+
         'Las siguientes variables las definimos para guardar los resultados de los paso necesarios paar ahcer la ecuación final
         Dim paso1 As Double
         Dim paso2 As Double
         Dim paso3 As Double
-        
+
         'En esta funcion se guarda la raiz de los vectores "AB, AC"
         Dim raiz As Double
         'La función división nos permite guardar el valor del producto esclar por los vectores
         Dim división As Double
-        
+
         'Definimos las cordenadas como integer para despues solicitar su valor al usuario
         Dim Ax As Integer
         Dim Ay As Integer
@@ -146,7 +146,7 @@ Module Module1
         Cx = Console.ReadLine()
         Console.WriteLine("Digite la cordenada y del vertice C: ")
         Cy = Console.ReadLine()
-        
+
         'En este apartado empezamos a utilizar las coordenadas para multiplicarlas y obtener las nuevas cordenadas de "AB, AC, BC"
         AB(0) = Bx - Ax
         AB(1) = By - Ay
@@ -158,7 +158,7 @@ Module Module1
         VectoresAB = AB(0) ^ 2 + AB(1) ^ 2
         vectoresAC = AC(0) ^ 2 + AC(1) ^ 2
         vectoresBC = BC(0) ^ 2 + BC(1) ^ 2
-        
+
         'Obtenemos el producto escalar utilizando los distintos vectores de "AB, AC, BC"
         escalarA = AB(0) * AC(0) + AB(1) * AC(1)
         escalarB = AB(0) * BC(0) + AB(1) * BC(1)
@@ -170,7 +170,7 @@ Module Module1
         'O en caso de requerir lo contrario re realiza de la siguiente manera: atan()*math.pi/180
         'La función Sqrt nos brinda la raiz cudrada de un número, importada de la libreria math
         'La función Pi nos brinda el número pi sin tener que determinarlo importada de la libreria math
-        
+
         'En este apartado veremos los pasos a realizar para resolver la ecuación
         'Primero realizamos el calculo de la raiz de los vectores "AB, AC"
         raiz = Sqrt(VectoresAB) * Sqrt(vectoresAC)
@@ -194,15 +194,41 @@ Module Module1
         paso2 = Atan(-división / Sqrt(paso1))
         paso3 = paso2 * 180 / Math.PI
         B = paso3 + (2 * Atan(1) * 180 / Math.PI)
-        
+
         'En esta linea hallamos el angulo de c, porque como recordamos de nustras clases de trigonometria
         'un triangulo posee 180 grados en total de sus tres vertices, por lo que solo quedaria restar los resultados anteriores de 180
         C = 180 - A - B
-        
+
         'Una vez obtenido todos los angulos, imprimimos por pantalla los resultados
         Console.WriteLine("El angulo del vertice A es: " & A)
         Console.WriteLine("El angulo del vertice B es: " & B)
         Console.WriteLine("El angulo del vertice C es: " & C)
+
+        Console.WriteLine("------------------------------------------------------------------ ")
+
+        '---------------------------------------------
+        'FizzBuzz
+        '--------------------------------------------
+        Console.WriteLine("imprimir multiplos de 3 y 5 FIZZBUZZ ")
+
+        Dim númerofizzbuzz As Integer = 0
+
+        While (númerofizzbuzz < 100)
+
+            If númerofizzbuzz Mod 3 = 0 And númerofizzbuzz Mod 5 = 0 Then
+                Console.WriteLine(númerofizzbuzz & " fizzbuzz")
+
+            ElseIf númerofizzbuzz Mod 5 = 0 Then
+                Console.WriteLine(númerofizzbuzz & " buzz")
+
+            ElseIf númerofizzbuzz Mod 3 = 0 Then
+                Console.WriteLine(númerofizzbuzz & " fizz")
+
+            End If
+
+            númerofizzbuzz += 1
+
+        End While
 
         'Utilizamos la siguiente linea para evitar que el ejecutable se suependa una vez acabado el proceso
         Console.ReadKey(True)
