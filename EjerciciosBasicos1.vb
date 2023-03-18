@@ -210,22 +210,28 @@ Module Module1
         'FizzBuzz
         '--------------------------------------------
         Console.WriteLine("imprimir multiplos de 3 y 5 FIZZBUZZ ")
+        
+        'Primero definimor una variable que va funcionar de contador
 
-        Dim númerofizzbuzz As Integer = 0
-
+        Dim númerofizzbuzz As Integer = 1
+        
+        'Utilizamos un bucle repetitivo para poder realizar las intrucciones indicadas, utilizando el contador para compararlo
+        'Con las condicionales anidadas que implementaremos más adelante
         While (númerofizzbuzz < 100)
-
+            
+            'La primera condicionales que utilizaremos es nos indica que si el contador resulta ser multiplo de 3 y 5, escriba Fizzbuzz
             If númerofizzbuzz Mod 3 = 0 And númerofizzbuzz Mod 5 = 0 Then
                 Console.WriteLine(númerofizzbuzz & " fizzbuzz")
-
+                'Si no esmultiplo de 3 y 5, pero si es multiplo de 5, escriba buzz
             ElseIf númerofizzbuzz Mod 5 = 0 Then
                 Console.WriteLine(númerofizzbuzz & " buzz")
-
+                'Si no esmultiplo de 3 y 5, y tampoco es multiplo de 5 pero si es multiplo de 3, escriba fizz 
             ElseIf númerofizzbuzz Mod 3 = 0 Then
                 Console.WriteLine(númerofizzbuzz & " fizz")
 
             End If
-
+            
+            'Por utimo sumamos un número al contador para que el proceso se repita hasta llegar a 100 que es cuando el bucle finaliza
             númerofizzbuzz += 1
 
         End While
