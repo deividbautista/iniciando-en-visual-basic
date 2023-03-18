@@ -1,4 +1,5 @@
-﻿Imports System.Math
+'Esta linea nos sirve para importar la libreria math, que nos trae varias funciones necesarias para el desarrollo del último ejercicio
+Imports System.Math
 Module Module1
     Sub Main()
         '---------------------------------------------
@@ -98,22 +99,32 @@ Module Module1
         Dim A As Double
         Dim B As Double
         Dim C As Double
+        
         'En las siguientes varibales utilizaremos un concepto nuevo, denominado: "MATRICES", para poder guardar
         'Dos resultados relacionados en una misma lista
         Dim AB(2) As Double
         Dim BC(2) As Double
         Dim AC(2) As Double
+        
         'Estos son variables para calcular los conocidos vectores, para el continuo desarrollo de la ecuación
         Dim VectoresAB As Double
         Dim vectoresBC As Double
         Dim vectoresAC As Double
+        
+        'En estos apartados definiremos los productos escalar de las funciones "AB, AC, BC"
         Dim escalarA As Integer
         Dim escalarB As Integer
+        
+        'Las siguientes variables las definimos para guardar los resultados de los paso necesarios paar ahcer la ecuación final
         Dim paso1 As Double
         Dim paso2 As Double
         Dim paso3 As Double
-        Dim cosenor As Double
+        
+        'En esta funcion se guarda la raiz de los vectores "AB, AC"
+        Dim raiz As Double
+        'La función división nos permite guardar el valor del producto esclar por los vectores
         Dim división As Double
+        
         'Definimos las cordenadas como integer para despues solicitar su valor al usuario
         Dim Ax As Integer
         Dim Ay As Integer
@@ -161,27 +172,37 @@ Module Module1
         'La función Pi nos brinda el número pi sin tener que determinarlo importada de la libreria math
         
         'En este apartado veremos los pasos a realizar para resolver la ecuación
-        cosenor = Sqrt(VectoresAB) * Sqrt(vectoresAC)
-        división = escalarA / cosenor
+        'Primero realizamos el calculo de la raiz de los vectores "AB, AC"
+        raiz = Sqrt(VectoresAB) * Sqrt(vectoresAC)
+        'Segundo se realiza la división del producto escalar y el resultado de la raiz de los vectores "AB, AC"
+        división = escalarA / raiz
+        'lo siquiente que se debe de realizar es la ecuación para hallar el arcoseno de la división echa anterioremente para asi dar solución al problema
+        'Atan(-x / Sqrt(-x * x + 1)) + (2 * Atan(1))
         paso1 = -división * división + 1
         paso2 = Atan(-división / Sqrt(paso1))
+        'Ya con el arcoseno encontrado, finalmente para obtener el resultado deseado, debemos de realizar lo descrito en lineas anteriores
+        'Converti el resultado obtenido en radianes a grados
         paso3 = paso2 * 180 / Math.PI
+        'Concluyendo obtenemos el angulo del vertice A 
         A = paso3 + (2 * Atan(1) * 180 / Math.PI)
 
-
-        cosenor = Sqrt(VectoresAB) * Sqrt(vectoresBC)
-        división = escalarB / cosenor
+        'Aplicamos los mismos parametros de la ecuación anterior, adaptano las variables para obtener el resultado del angulo del vertice B
+        raiz = Sqrt(VectoresAB) * Sqrt(vectoresBC)
+        división = escalarB / raiz
         división = Math.Abs(división)
         paso1 = -división * división + 1
         paso2 = Atan(-división / Sqrt(paso1))
         paso3 = paso2 * 180 / Math.PI
         B = paso3 + (2 * Atan(1) * 180 / Math.PI)
-
+        
+        'En esta linea hallamos el angulo de c, porque como recordamos de nustras clases de trigonometria
+        'un triangulo posee 180 grados en total de sus tres vertices, por lo que solo quedaria restar los resultados anteriores de 180
         C = 180 - A - B
+        
+        'Una vez obtenido todos los angulos, imprimimos por pantalla los resultados
         Console.WriteLine("El angulo del vertice A es: " & A)
         Console.WriteLine("El angulo del vertice B es: " & B)
         Console.WriteLine("El angulo del vertice C es: " & C)
-
 
         'Utilizamos la siguiente linea para evitar que el ejecutable se suependa una vez acabado el proceso
         Console.ReadKey(True)
