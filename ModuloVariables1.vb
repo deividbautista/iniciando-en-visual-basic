@@ -1,7 +1,7 @@
 ﻿Module Module1
 
     Sub Main()
-        'Para imprimir en la consola solo necesitamos de lo siguiente
+        'Para imprimir en la consola solo necesitamos de la siguiente línea de código 
 
         Console.WriteLine("wenas")
 
